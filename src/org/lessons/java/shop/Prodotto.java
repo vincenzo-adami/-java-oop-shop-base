@@ -24,7 +24,7 @@ public class Prodotto {
   }
 
   String getNomeEsteso() {
-    return codice + nome;
+    return codice + "-" + nome;
   }
 
 }
