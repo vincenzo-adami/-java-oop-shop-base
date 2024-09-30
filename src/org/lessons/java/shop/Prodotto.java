@@ -11,7 +11,8 @@ public class Prodotto {
   private double iva;
 
   Prodotto() {
-    setCodice();
+    Random numRandom = new Random();
+    codice = numRandom.nextInt();
     setIva(0.22);
   }
 
@@ -21,54 +22,51 @@ public class Prodotto {
     this.descrizione = descrizione;
   }
 
-  private void setCodice() {
-    Random numRandom = new Random();
-    codice = numRandom.nextInt();
-  }
-
   int getCodice() {
     return codice;
   }
 
-  void setNome(String nome) {
+  public void setNome(String nome) {
     this.nome = nome;
   }
 
-  String getNome() {
+  public String getNome() {
     return nome;
   }
 
-  void setDescrizione(String descrizione) {
+  public void setDescrizione(String descrizione) {
     this.descrizione = descrizione;
   }
 
-  String getDescrizione() {
+  public String getDescrizione() {
     return descrizione;
   }
 
-  void setPrezzo(double prezzo) {
+  public void setPrezzo(double prezzo) {
     this.prezzo = prezzo;
   }
 
-  double getPrezzo() {
+  public double getPrezzo() {
     return prezzo;
   }
 
-  void setIva(double iva) {
+  public void setIva(double iva) {
     if (iva == 0.04 || iva == 0.05 || iva == 0.1 || iva == 0.22) {
       this.iva = iva;
+    } else {
+      System.out.println("Valore d'iva inesistente, inserirne un altro");
     }
   }
 
-  double getIva() {
+  public double getIva() {
     return iva;
   }
 
-  String getPrezzoIvato() {
+  public String getPrezzoIvato() {
     return String.format("%.2f", (prezzo + (prezzo * iva)));
   }
 
-  String getNomeEsteso() {
+  public String getNomeEsteso() {
     return codice + "-" + nome;
   }
 
